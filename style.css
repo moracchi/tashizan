@@ -1,0 +1,274 @@
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Rounded MT Bold', 'Segoe UI', 'Comic Sans MS', sans-serif;
+}
+
+body {
+    background-color: #f0f9ff;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 100, 0.15);
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #4361ee;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: rainbow 8s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { color: #ff5e5e; }
+    20% { color: #ffbd5e; }
+    40% { color: #6aff5e; }
+    60% { color: #5eb8ff; }
+    80% { color: #c15eff; }
+    100% { color: #ff5e5e; }
+}
+
+/* 問題表示エリア */
+.problem-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    gap: 15px;
+}
+
+.number {
+    width: 60px;
+    height: 60px;
+    background-color: #ffd166;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.operator {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ef476f;
+}
+
+.question-mark {
+    width: 60px;
+    height: 60px;
+    background-color: #06d6a0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 電車表示エリア */
+.train-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 30px;
+    min-height: 120px;
+}
+
+.train-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    min-width: 200px;
+}
+
+.train {
+    width: 80px;
+    height: 60px;
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+.train:hover {
+    transform: translateY(-5px) rotate(2deg);
+}
+
+.operator-visual {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ef476f;
+}
+
+/* 回答選択エリア */
+.answer-container h2 {
+    color: #4361ee;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.option-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #4cc9f0, #3da9d9);
+    border: none;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.option-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* フィードバックエリア */
+.feedback {
+    height: 60px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: transparent;
+}
+
+.correct {
+    color: #06d6a0;
+    animation: bounce 0.8s ease;
+}
+
+.incorrect {
+    color: #ef476f;
+    animation: shake 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
+    20%, 40%, 60%, 80% {transform: translateX(5px);}
+}
+
+/* 次の問題ボタン */
+.next-button {
+    background-image: linear-gradient(to right, #4361ee, #3f37c9);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.next-button:hover {
+    background-image: linear-gradient(to right, #3f37c9, #4361ee);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* スコア表示 */
+.score-container {
+    margin-top: 20px;
+}
+
+.score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4361ee;
+}
+
+/* アニメーション関連 */
+.train-animation {
+    animation: trainMove 1s ease;
+}
+
+@keyframes trainMove {
+    0% {transform: translateX(-50px); opacity: 0;}
+    100% {transform: translateX(0); opacity: 1;}
+}
+
+/* クリックエフェクト */
+.button-click {
+    animation: buttonPress 0.2s ease;
+}
+
+@keyframes buttonPress {
+    0% {transform: scale(1);}
+    50% {transform: scale(0.95);}
+    100% {transform: scale(1);}
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+    .problem-container {
+        font-size: 2rem;
+    }
+    
+    .number, .question-mark {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .train {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .option-button {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}

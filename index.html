@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>でんしゃ けいさん ゲーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>でんしゃ けいさん ゲーム</h1>
+        
+        <!-- ゲームエリア -->
+        <div class="game-area">
+            <!-- 問題表示部分 -->
+            <div class="problem-container">
+                <div class="number" id="firstNumber">3</div>
+                <div class="operator" id="operator">+</div>
+                <div class="number" id="secondNumber">2</div>
+                <div class="operator">=</div>
+                <div class="question-mark">?</div>
+            </div>
+            
+            <!-- 電車イラスト表示エリア -->
+            <div class="train-container">
+                <div class="train-group" id="firstTrainGroup"></div>
+                <div class="operator-visual" id="operatorVisual">+</div>
+                <div class="train-group" id="secondTrainGroup"></div>
+            </div>
+            
+            <!-- 回答選択エリア -->
+            <div class="answer-container">
+                <h2>こたえは？</h2>
+                <div class="options" id="options">
+                    <!-- JavaScriptで動的に生成される選択肢 -->
+                </div>
+            </div>
+            
+            <!-- フィードバックエリア -->
+            <div class="feedback" id="feedback"></div>
+            
+            <!-- 次の問題ボタン -->
+            <button class="next-button" id="nextButton">つぎのもんだい</button>
+        </div>
+        
+        <!-- スコア表示 -->
+        <div class="score-container">
+            <div class="score">せいかい: <span id="correctCount">0</span></div>
+        </div>
+    </div>
+    
+    <!-- 音声ファイル -->
+    <audio id="correctSound" src="sounds/seikai.m4a"></audio>
+    <audio id="incorrectSound" src="sounds/fuseikai.m4a"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
